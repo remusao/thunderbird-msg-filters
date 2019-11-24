@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "Library to parse and generate thunderbird msg filters rules",
   "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.ts",
+    "index.d.ts"
+  ],
   "scripts": {
     "start": "ts-node index.ts",
     "build": "tsc --module commonjs"
