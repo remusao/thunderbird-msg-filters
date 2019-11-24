@@ -1,6 +1,6 @@
 import { promises as fs } from 'fs';
 
-import { parse, pprint } from '.';
+import { parse, format } from '.';
 
 (async () => {
   const msgRulesPath = process.argv[process.argv.length - 1];
@@ -11,7 +11,7 @@ import { parse, pprint } from '.';
 
   const msgRulesRaw = await fs.readFile(msgRulesPath, 'utf-8');
   const msgRules = parse(msgRulesRaw);
-  const msgRulesPprint = pprint(msgRules);
+  const msgRulesStr = format(msgRules);
 
-  console.log('Rules', msgRules, msgRulesRaw.trim() === msgRulesPprint);
+  console.log('Rules', msgRules, msgRulesRaw.trim() === msgRulesStr);
 })();

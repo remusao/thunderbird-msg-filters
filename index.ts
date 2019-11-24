@@ -41,7 +41,7 @@ interface Rules {
   rules: Rule[];
 }
 
-export function pprint(msgRules: Rules): string {
+export function format(msgRules: Rules): string {
   const lines: string[] = [
     `version="${msgRules.version}"`,
     `logging="${msgRules.logging}"`,

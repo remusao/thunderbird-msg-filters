@@ -26,7 +26,7 @@ npm install --save thunderbird-msg-filters
 Then use (works both as a commonjs and es6 import):
 
 ```typescript
-import { parse, pprint } from 'thunderbird-msg-filters';
+import { parse, format } from 'thunderbird-msg-filters';
 
 // A typical `msgFilterRules.dat` could contain this raw value.
 const rules = parse(`
@@ -47,7 +47,7 @@ condition="ALL"
 `);
 
 // This will produce the exact same output as previous example.
-const rulesAsString = pprint({
+const rulesAsString = format({
   version: '9',
   logging: 'no',
   rules: [
