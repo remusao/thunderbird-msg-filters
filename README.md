@@ -17,7 +17,13 @@ low-level parsing details. It would also be possible to store the rules in a
 nicer format then use the library to produce the final file which can be
 consumed by Thunderbird.
 
-For example:
+Install the library:
+
+```sh
+npm install --save thunderbird-msg-filters
+```
+
+Then use (works both as a commonjs and es6 import):
 
 ```typescript
 import { parse, pprint } from 'thunderbird-msg-filters';
@@ -65,4 +71,3 @@ const rulesAsString = pprint({
   ]
 })
 ```
-

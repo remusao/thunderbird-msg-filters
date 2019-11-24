@@ -1,5 +1,3 @@
-import { promises as fs } from 'fs';
-
 const ActionNames = [
   'AddTag',
   'Change priority',
@@ -43,7 +41,7 @@ interface Rules {
   rules: Rule[];
 }
 
-function pprint(msgRules: Rules): string {
+export function pprint(msgRules: Rules): string {
   const lines: string[] = [
     `version="${msgRules.version}"`,
     `logging="${msgRules.logging}"`,
@@ -78,7 +76,7 @@ function normalizeValue(value: string): string {
   return value;
 }
 
-function parse(msgRulesRaw: string): Rules {
+export function parse(msgRulesRaw: string): Rules {
   const error = (line: number, msg: string): void => {
     console.error(`${line}: ${msg}`);
   };
@@ -294,17 +292,3 @@ function parse(msgRulesRaw: string): Rules {
 
   return msgRules;
 }
-
-(async () => {
-  const msgRulesPath = process.argv[process.argv.length - 1];
-  if (msgRulesPath.endsWith('/msgFilterRules.dat') === false) {
-    console.error('usage: <program> <msgFilterRules.dat>');
-    process.exit(1);
-  }
-
-  const msgRulesRaw = await fs.readFile(msgRulesPath, 'utf-8');
-  const msgRules = parse(msgRulesRaw);
-  const msgRulesPprint = pprint(msgRules);
-
-  console.log('Rules', msgRules, msgRulesRaw.trim() === msgRulesPprint);
-})();

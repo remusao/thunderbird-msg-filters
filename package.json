@@ -1,14 +1,17 @@
 {
   "name": "thunderbird-msg-filters",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Library to parse and generate thunderbird msg filters rules",
   "repository": "https://github.com/remusao/thunderbird-msg-filters",
   "main": "index.js",
   "types": "index.d.ts",
   "files": [
+    "cli.d.ts",
+    "cli.js",
+    "cli.ts",
+    "index.d.ts",
     "index.js",
-    "index.ts",
-    "index.d.ts"
+    "index.ts"
   ],
   "scripts": {
     "start": "ts-node index.ts",

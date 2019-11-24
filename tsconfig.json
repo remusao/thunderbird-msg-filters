@@ -13,5 +13,5 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
-  "files": ["index.ts"]
+  "files": ["index.ts", "cli.ts"]
 }
