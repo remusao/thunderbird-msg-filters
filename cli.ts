@@ -13,5 +13,6 @@ import { parse, format } from '.';
   const msgRules = parse(msgRulesRaw);
   const msgRulesStr = format(msgRules);
 
-  console.log('Rules', msgRules, msgRulesRaw.trim() === msgRulesStr);
+  console.log('Self-check', msgRulesRaw.trim() === msgRulesStr);
+  console.log(JSON.stringify(msgRules, null, 2));
 })();

@@ -30,7 +30,7 @@ interface Action {
 interface Rule {
   name: string;
   enabled: 'yes' | 'no';
-  type: '17';
+  type: '17' | '145'; // TODO - understand meaning of 'type'
   actions: Action[];
   condition: string; // TODO - parse conditions? 'ALL', 'OR', 'AND'
 }
@@ -239,8 +239,8 @@ export function parse(msgRulesRaw: string): Rules {
         break;
       }
       case 'type': {
-        if (value !== '17') {
-          error(i + 1, `invalid value for "type", expected "17" but got ${value}`);
+        if (value !== '17' && value !== '145') {
+          error(i + 1, `invalid value for "type", expected "17" or "145" but got ${value}`);
           state.unparseable = true;
           break;
         }
